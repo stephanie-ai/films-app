@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+
+#content {
+    width: 60vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+table { width: 100%; }

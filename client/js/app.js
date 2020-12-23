@@ -1,9 +1,11 @@
 // ********************************************
 // SETUP
 const btn = document.querySelector('#msgBtn');
+const form = document.querySelector('#add-film-form');
 const filmsList = document.querySelector('table');
 // buttons and event listeners
 btn.addEventListener('click', getMessage);
+form.addEventListener('submit', submitFilm);
 // fetch all films as soon as app is loaded
 showAllFilms();
 
@@ -16,6 +18,29 @@ function showAllFilms() {
     fetch('http://localhost:3000/films')
         .then(r => r.json())
         .then(appendFilms)
+        .catch(console.warn)
+};
+
+function submitFilm(e) {
+    e.preventDefault();
+
+    const filmData = {
+        name: e.target.name.value,
+        year: e.target.year.value,
+        genre: e.target.genre.value,
+        rating: e.target.rating.value
+    };
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(filmData),
+        headers: { "Content-Type": "application/json" }
+    };
+
+    fetch('http://localhost:3000/films', options)
+        .then(r => r.json())
+        .then(appendFilm)
+        .then(() => e.target.reset())
         .catch(console.warn)
 };
 
@@ -37,6 +62,9 @@ function formatFilmTableRow(film, tr) {
     const yearTd = document.createElement('td');
     const genreTd = document.createElement('td');
     const imdbTd = document.createElement('td');
+
+    const delBtn = document.createElement('button');
+    
 
     nameTd.textContent = film.name;
     yearTd.textContent = film.year;

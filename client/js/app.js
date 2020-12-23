@@ -59,7 +59,7 @@ function updateFilm(id, tr) {
         .catch(console.warn)
 }
 
-function deleteDog(id, li) {
+function deleteFilm(id, li) {
     console.log('deleting', id);
     const options = {
         method: 'DELETE'
@@ -88,16 +88,22 @@ function formatFilmTableRow(film, tr) {
     const genreTd = document.createElement('td');
     const imdbTd = document.createElement('td');
     const delTd = document.createElement('td');
+    const updTd = document.createElement('td');
 
     const delBtn = document.createElement('button');
-    
+    const updBtn = document.createElement('button');
+
     delBtn.setAttribute('class', 'delete');
+    updBtn.setAttribute('class', 'update');
 
     delBtn.textContent = 'X';
+    updBtn.textContent = '+';
 
     delBtn.onclick = () => deleteFilm(film.id, tr);
+    updBtn.onclick = () => updateFilm(film.id. tr);
 
     delTd.append(delBtn);
+    updTd.append(updBtn);
 
     nameTd.textContent = film.name;
     yearTd.textContent = film.year;
@@ -108,6 +114,7 @@ function formatFilmTableRow(film, tr) {
     tr.append(yearTd);
     tr.append(genreTd);
     tr.append(imdbTd);
+    tr.append(updTd);
     tr.append(delTd);
 
     return tr;

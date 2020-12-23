@@ -14,6 +14,7 @@ class Film {
         return new Promise (async (resolve, reject) => {
             try {
                 const filmsData = await db.run(SQL`SELECT * FROM films;`);
+                // console.log(filmsData);
                 const films = filmsData.rows.map(film => new Film(film));
                 resolve(films);
             } catch(err) {

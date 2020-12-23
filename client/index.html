@@ -12,6 +12,22 @@
     <div id="content">
         <button id="msgBtn">Click here to see a movie quote</button>
 
+        <form id="add-film-form">
+            <label for="name">name</label>
+            <input type="text" id="name" />
+
+            <label for="year">year</label>
+            <input type="number" id="year" />
+
+            <label for="genre">genre</label>
+            <input type="text" id="genre" />
+
+            <label for="rating">rating</label>
+            <input type="number" id="rating" />
+
+            <input type="submit" value="add film">
+        </form>
+
         <section id="films">
             <h2>All The Films</h2>
             <table>
@@ -19,7 +35,7 @@
                     <th>Name</th>
                     <th>Year</th>
                     <th>Genre</th>
-                    <th>IMDb Rating</th>
+                    <th>Rating 1-10</th>
                 </tr>
             </table>
             <ul>

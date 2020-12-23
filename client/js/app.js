@@ -113,7 +113,7 @@ function formatFilmTableRow(film, tr) {
     tr.append(nameTd);
     tr.append(yearTd);
     tr.append(genreTd);
-    tr.append(imdbTd);
+    tr.append(imdbTd); 
     tr.append(updTd);
     tr.append(delTd);
 

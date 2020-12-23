@@ -44,6 +44,16 @@ function submitFilm(e) {
         .catch(console.warn)
 };
 
+function deleteDog(id, li) {
+    console.log('deleting', id);
+    const options = {
+        method: 'DELETE'
+    };
+    fetch(`http://localhost:3000/films/${id}`, options)
+        .then(li.remove())
+        .catch(console.warn)
+}
+
 // helper functions
 
 function appendFilms(data) {
@@ -62,9 +72,17 @@ function formatFilmTableRow(film, tr) {
     const yearTd = document.createElement('td');
     const genreTd = document.createElement('td');
     const imdbTd = document.createElement('td');
+    const delTd = document.createElement('td');
 
     const delBtn = document.createElement('button');
     
+    delBtn.setAttribute('class', 'delete');
+
+    delBtn.textContent = 'X';
+
+    delBtn.onclick = () => deleteFilm(film.id, tr);
+
+    delTd.append(delBtn);
 
     nameTd.textContent = film.name;
     yearTd.textContent = film.year;

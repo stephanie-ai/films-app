@@ -3,9 +3,11 @@
 const btn = document.querySelector('#msgBtn');
 const form = document.querySelector('#add-film-form');
 const filmsList = document.querySelector('table');
+
 // buttons and event listeners
 btn.addEventListener('click', getMessage);
 form.addEventListener('submit', submitFilm);
+
 // fetch all films as soon as app is loaded
 showAllFilms();
 
@@ -43,6 +45,19 @@ function submitFilm(e) {
         .then(() => e.target.reset())
         .catch(console.warn)
 };
+
+function updateFilm(id, tr) {
+    const options = {
+        method: 'PATCH'
+    };
+    fetch(`http://localhost:3000/films/${id}`, options)
+        .then(r => r.json())
+        .then(data => {
+            const { film } = data
+            tr.querySelectorAll('td')[1].textContent = film.rating
+        })
+        .catch(console.warn)
+}
 
 function deleteDog(id, li) {
     console.log('deleting', id);
@@ -93,6 +108,7 @@ function formatFilmTableRow(film, tr) {
     tr.append(yearTd);
     tr.append(genreTd);
     tr.append(imdbTd);
+    tr.append(delTd);
 
     return tr;
 }

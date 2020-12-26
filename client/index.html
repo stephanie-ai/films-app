@@ -14,18 +14,18 @@
 
         <form id="add-film-form">
             <label for="name">name</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" required />
 
             <label for="year">year</label>
-            <input type="number" id="year" min="1900" max="2020" />
+            <input type="number" id="year" required value="2000" min="1950" max="2020" />
             <br>
             <label for="genre">genre</label>
-            <input type="text" id="genre" />
+            <input type="text" id="genre" required />
 
             <label for="rating">rating</label>
-            <input type="number" id="rating" min="1" max="10" />
+            <input type="number" id="rating" required min="1" max="10" />
 
-            <input type="submit" value="add film">
+            <input id="submit" type="submit" value="add film" />
         </form>
 
         <section id="films">

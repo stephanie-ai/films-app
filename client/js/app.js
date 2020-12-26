@@ -142,3 +142,44 @@ const shuffleQuotes = () => {
 function renderMessage() {
     document.querySelector('#msgBtn').textContent = shuffleQuotes();
 };
+
+// filter by genre
+
+function genreFilter() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+// function genreFilter() {
+//     let input, filter, table, tr, td, i, textValue;
+//     input = document.getElementById("genreFilter");
+//     filter = input.value.toUpperCase();
+//     table = document.getElementById("filmsTable");
+//     tr = table.getElementsByTagName("tr");
+
+//     // loop through the table rows and hide the ones that don't match the genre selected
+//     for (i = 0; i < tr.length; i++) {
+//         td = tr[i].getElementsByTagName("td")[0];
+//         if (td) {
+//             textValue = td.textContent || td.innerText;
+//             if (textValue.toUpperCase().indexOf(filter) > -1) {
+//                 tr[i].style.display = "";
+//             } else {
+//                 tr[i].style.display = "none";
+//             }
+//         }
+//     }
+// }

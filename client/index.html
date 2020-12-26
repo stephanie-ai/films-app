@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/app.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="stylesheet" href="styles/index.css">
     <title>Films App</title>
 </head>
@@ -28,9 +29,22 @@
             <input id="submit" type="submit" value="add film" />
         </form>
 
+        <!-- <input type="text" id="genreFilter" onkeyup="genreFilter()" placeholder="filter by genre" /> -->
+
+        <div class="dropdown">
+            <button onclick="genreFilter()" class="dropbtn">filter by genre</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="#">action</a>
+              <a href="#">comedy</a>
+              <a href="#">disney</a>
+              <a href="#">mystery</a>
+              <a href="#">romance</a>
+            </div>
+          </div>
+
         <section id="films">
             <h2>All The Films</h2>
-            <table>
+            <table id="filmsTable">
                 <tr>
                     <th>Name</th>
                     <th>Year</th>

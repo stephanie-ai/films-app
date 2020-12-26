@@ -54,7 +54,7 @@ function updateFilm(id, tr) {
         .then(r => r.json())
         .then(data => {
             const { film } = data
-            tr.querySelectorAll('td')[1].textContent = film.rating
+            tr.querySelectorAll('td')[3].textContent = film.rating
         })
         .catch(console.warn)
 }
@@ -128,6 +128,17 @@ function getMessage() {
         .catch(console.warn)
 };
 
+const shuffleQuotes = () => {
+    const quotes = ['"Just keep swimming"', '"Here\'s looking at you, kid"', '"Bond. James Bond"', '"There\'s no place like home"', '"Show me the money!"', '"You can\'t handle the truth"', '"You\'re gonna need a bigger boat"', '"Hasta la vista, baby"', '"Carpe diem. Seize the day, boys. Make your lives extraordinary"', '"Nobody puts Baby in a corner"', '"I\'m king of the world"'];
+    for (let i = quotes.length-1; i > 0; i++) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = quotes[i];
+        quotes[i] = quotes[j];
+        quotes[j] = temp;
+        return quotes[i];
+    }
+}
+
 function renderMessage() {
-    document.querySelector('#msgBtn').textContent = "To be or not to be";
+    document.querySelector('#msgBtn').textContent = shuffleQuotes();
 };

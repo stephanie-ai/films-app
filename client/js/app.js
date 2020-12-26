@@ -99,6 +99,8 @@ function formatFilmTableRow(film, tr) {
     delBtn.textContent = 'X';
     updBtn.textContent = '+';
 
+    genreTd.setAttribute('class', 'genre');
+
     delBtn.onclick = () => deleteFilm(film.id, tr);
     updBtn.onclick = () => updateFilm(film.id. tr);
 
@@ -163,23 +165,6 @@ function genreFilter() {
     }
   }
 
-// function genreFilter() {
-//     let input, filter, table, tr, td, i, textValue;
-//     input = document.getElementById("genreFilter");
-//     filter = input.value.toUpperCase();
-//     table = document.getElementById("filmsTable");
-//     tr = table.getElementsByTagName("tr");
-
-//     // loop through the table rows and hide the ones that don't match the genre selected
-//     for (i = 0; i < tr.length; i++) {
-//         td = tr[i].getElementsByTagName("td")[0];
-//         if (td) {
-//             textValue = td.textContent || td.innerText;
-//             if (textValue.toUpperCase().indexOf(filter) > -1) {
-//                 tr[i].style.display = "";
-//             } else {
-//                 tr[i].style.display = "none";
-//             }
-//         }
-//     }
-// }
+function filterSelection() {
+    console.log('the action button has been clicked');
+}

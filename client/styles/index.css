@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic&display=swap');
+
 * { box-sizing: border-box; }
 
 #content {
     width: 60vw;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Andika New Basic', sans-serif;
 }
 
 button { background-color: rgba(77, 149, 182, 0.4); }

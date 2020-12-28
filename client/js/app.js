@@ -48,13 +48,14 @@ function submitFilm(e) {
 
 function updateFilm(id, tr) {
     const options = {
-        method: 'PATCH'
+        method: 'PATCH',
     };
     fetch(`http://localhost:3000/films/${id}`, options)
         .then(r => r.json())
         .then(data => {
             const { film } = data
-            tr.querySelectorAll('td')[1].textContent = film.rating
+            console.log(film);
+            tr.querySelectorAll('td')[3].textContent = film.rating
         })
         .catch(console.warn)
 }
@@ -102,7 +103,7 @@ function formatFilmTableRow(film, tr) {
     // genreTd.setAttribute('class', 'genre');
 
     delBtn.onclick = () => deleteFilm(film.id, tr);
-    updBtn.onclick = () => updateFilm(film.id. tr);
+    updBtn.onclick = () => updateFilm(film.id, tr);
 
     delTd.append(delBtn);
     updTd.append(updBtn);

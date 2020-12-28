@@ -5,7 +5,7 @@ const form = document.querySelector('#add-film-form');
 const filmsList = document.querySelector('table');
 
 // buttons and event listeners
-btn.addEventListener('click', getMessage);
+btn.addEventListener('click', getQuote);
 form.addEventListener('submit', submitFilm);
 
 // fetch all films as soon as app is loaded
@@ -54,7 +54,7 @@ function updateFilm(id, tr) {
         .then(r => r.json())
         .then(data => {
             const { film } = data
-            tr.querySelectorAll('td')[3].textContent = film.rating
+            tr.querySelectorAll('td')[1].textContent = film.rating
         })
         .catch(console.warn)
 }
@@ -99,7 +99,7 @@ function formatFilmTableRow(film, tr) {
     delBtn.textContent = 'X';
     updBtn.textContent = '+';
 
-    genreTd.setAttribute('class', 'genre');
+    // genreTd.setAttribute('class', 'genre');
 
     delBtn.onclick = () => deleteFilm(film.id, tr);
     updBtn.onclick = () => updateFilm(film.id. tr);
@@ -116,17 +116,17 @@ function formatFilmTableRow(film, tr) {
     tr.append(yearTd);
     tr.append(genreTd);
     tr.append(imdbTd); 
-    tr.append(updTd);
     tr.append(delTd);
+    tr.append(updTd);
 
     return tr;
 }
 
 // MESSAGE FLOW
-function getMessage() {
+function getQuote() {
     fetch('http://localhost:3000')
         .then(r => r.text())
-        .then(renderMessage)
+        .then(renderQuote)
         .catch(console.warn)
 };
 
@@ -141,7 +141,7 @@ const shuffleQuotes = () => {
     }
 }
 
-function renderMessage() {
+function renderQuote() {
     document.querySelector('#msgBtn').textContent = shuffleQuotes();
 };
 

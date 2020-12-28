@@ -78,6 +78,7 @@ function appendFilms(data) {
 
 function appendFilm(filmData) {
     const newRow = document.createElement('tr');
+    // newRow.setAttribute('class', 'filterDiv');
     const filmListItem = formatFilmTableRow(filmData, newRow);
     filmsList.append(newRow);
 };
@@ -117,10 +118,11 @@ function formatFilmTableRow(film, tr) {
     tr.append(yearTd);
     tr.append(genreTd);
     tr.append(imdbTd); 
-    tr.append(delTd);
     tr.append(updTd);
-
+    tr.append(delTd);
+    
     return tr;
+    
 }
 
 // MESSAGE FLOW
@@ -155,10 +157,10 @@ function genreFilter() {
   // Close the dropdown menu if the user clicks outside of it
   window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      let i;
       for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
+        let openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
           openDropdown.classList.remove('show');
         }
@@ -166,6 +168,58 @@ function genreFilter() {
     }
   }
 
-function filterSelection() {
+function filterSelection(g) {
     console.log('the action button has been clicked');
+    if (g === 'action') {
+        console.log('action button part 2');
+    } else if (g === 'comedy') {
+        console.log('comedy has been chosen');
+    } else if (g === 'disney') {
+        console.log('disney has been chosen');
+    } else if (g === 'mystery') {
+        console.log('its a mystery');
+    } else if (g === 'romance') {
+        console.log('how romantic');
+    }
 }
+
+
+
+// function filterSelection(g) {
+//     console.log('the action button has been clicked');
+//     let x, i;
+//     x = document.getElementsByClassName("filterDiv");
+//     if (g === "action") g = "";
+//     for (let i = 0; i < x.length; i++) {
+//         removeClass(x[i], "show");
+//         if (x[i].className.indexOf(g) > -1) addClass(x[i], "show");
+//     }
+// }
+
+// show filtered elements
+// function addClass(element, name) {
+//     let arr1, arr2;
+//     arr1 = element.className.split(" ");
+//     arr2 = name.split(" ");
+//     for (let i = 0; i < arr2.length; i++) {
+//       if (arr1.indexOf(arr2[i]) == -1) {
+//         element.className += " " + arr2[i];
+//       }
+//     }
+//   }
+  
+//   // Hide elements that are not selected
+//   function removeClass(element, name) {
+//     let arr1, arr2;
+//     arr1 = element.className.split(" ");
+//     arr2 = name.split(" ");
+//     for (let i = 0; i < arr2.length; i++) {
+//       while (arr1.indexOf(arr2[i]) > -1) {
+//         arr1.splice(arr1.indexOf(arr2[i]), 1); 
+//       }
+//     }
+//     element.className = arr1.join(" ");
+//   }
+
+// const genreAction = document.getElementById('genreAction');
+//     genreAction.addEventListener('click', filterForAction);

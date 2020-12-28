@@ -12,7 +12,7 @@
     <h1>The Database For Films</h1>
     <div id="content">
         <button id="msgBtn">Click here to see a movie quote</button>
-
+<hr>
         <form id="add-film-form">
             <label for="name">name</label>
             <input type="text" id="name" required />
@@ -28,20 +28,18 @@
 
             <input id="submit" type="submit" value="add film" />
         </form>
-
-        <!-- <input type="text" id="genreFilter" onkeyup="genreFilter()" placeholder="filter by genre" /> -->
-
+<hr>
         <div class="dropdown">
             <button onclick="genreFilter()" class="dropbtn">filter by genre</button>
             <div id="myDropdown" class="dropdown-content">
-              <a href="#">action</a>
+              <button onclick="filterSelection('action')"><a href="#" >action</a></button>
               <a href="#">comedy</a>
               <a href="#">disney</a>
               <a href="#">mystery</a>
               <a href="#">romance</a>
             </div>
           </div>
-
+<hr>
         <section id="films">
             <h2>All The Films</h2>
             <table id="filmsTable">

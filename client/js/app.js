@@ -78,7 +78,6 @@ function appendFilms(data) {
 
 function appendFilm(filmData) {
     const newRow = document.createElement('tr');
-    // newRow.setAttribute('class', 'filterDiv');
     const filmListItem = formatFilmTableRow(filmData, newRow);
     filmsList.append(newRow);
 };
@@ -152,26 +151,27 @@ function renderQuote() {
 
 function genreFilter() {
     document.getElementById("myDropdown").classList.toggle("show");
-  }
+}
   
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
-      let dropdowns = document.getElementsByClassName("dropdown-content");
-      let i;
-      for (i = 0; i < dropdowns.length; i++) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        let i;
+        for (i = 0; i < dropdowns.length; i++) {
         let openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
+            openDropdown.classList.remove('show');
         }
-      }
+        }
     }
-  }
+}
 
 function filterSelection(g) {
-    console.log('the action button has been clicked');
     if (g === 'action') {
-        console.log('action button part 2');
+        if (film.genre === 'action') {
+            filmListItem.style.display = none;
+        }
     } else if (g === 'comedy') {
         console.log('comedy has been chosen');
     } else if (g === 'disney') {
@@ -183,43 +183,3 @@ function filterSelection(g) {
     }
 }
 
-
-
-// function filterSelection(g) {
-//     console.log('the action button has been clicked');
-//     let x, i;
-//     x = document.getElementsByClassName("filterDiv");
-//     if (g === "action") g = "";
-//     for (let i = 0; i < x.length; i++) {
-//         removeClass(x[i], "show");
-//         if (x[i].className.indexOf(g) > -1) addClass(x[i], "show");
-//     }
-// }
-
-// show filtered elements
-// function addClass(element, name) {
-//     let arr1, arr2;
-//     arr1 = element.className.split(" ");
-//     arr2 = name.split(" ");
-//     for (let i = 0; i < arr2.length; i++) {
-//       if (arr1.indexOf(arr2[i]) == -1) {
-//         element.className += " " + arr2[i];
-//       }
-//     }
-//   }
-  
-//   // Hide elements that are not selected
-//   function removeClass(element, name) {
-//     let arr1, arr2;
-//     arr1 = element.className.split(" ");
-//     arr2 = name.split(" ");
-//     for (let i = 0; i < arr2.length; i++) {
-//       while (arr1.indexOf(arr2[i]) > -1) {
-//         arr1.splice(arr1.indexOf(arr2[i]), 1); 
-//       }
-//     }
-//     element.className = arr1.join(" ");
-//   }
-
-// const genreAction = document.getElementById('genreAction');
-//     genreAction.addEventListener('click', filterForAction);
